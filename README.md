@@ -47,14 +47,14 @@ Using Payments table we can analyze and identify most preferable payment types a
 
 - **How would you turn it into an application in production?**
 I would implement these steps below:
-Data ingestion: Creating ingestion pipeline to ingest source CSV files or database data into our raw folder in a datalake
-Data pipeline: Implementing a data pipeline that automates data extraction, transformation, and loading from the source data (database or data lake) to the application.
-Storage: Storing the refined and processed data in a datalake that is optimized for future read operations, processed data also can be stored in a database for creating data marts or other analytical/reporting purposes. 
-Orchestration: Using ADF or other job services to run pipelines in scheduled manner
-Deployment: Using some CI/CD tool for application and its dependencies to easy deployment and scaling.
-Web Service: Creating RESTful API or web service or other visualization dashboards (e.g PowerBI) that provides endpoints/graphs for users or other services to request sales forecasts.
-Monitoring/Logging: Implementing monitoring and logging to track the performance of the application 
-Updates: Regularly maintaining and updating the application, for example using newly available forecasting models or adding other features to predict the future outcomes.
+- Data ingestion: Creating ingestion pipeline to ingest source CSV files or database data into our raw folder in a datalake
+- Data pipeline: Implementing a data pipeline that automates data extraction, transformation, and loading from the source data (database or data lake) to the application.
+- Storage: Storing the refined and processed data in a datalake that is optimized for future read operations, processed data also can be stored in a database for creating data marts or other analytical/reporting purposes. 
+- Orchestration: Using ADF or other job services to run pipelines in scheduled manner
+- Deployment: Using some CI/CD tool for application and its dependencies to easy deployment and scaling.
+- Web Service: Creating RESTful API or web service or other visualization dashboards (e.g PowerBI) that provides endpoints/graphs for users or other services to request sales forecasts.
+- Monitoring/Logging: Implementing monitoring and logging to track the performance of the application 
+- Updates: Regularly maintaining and updating the application, for example using newly available forecasting models or adding other features to predict the future outcomes.
 - **How would you design an application if you knew that you would have to build a similar solution for a couple other countries, and the data schema might be different for them, however, you can get the same underlying data?**
 1. Maybe using configuration files or settings that specify which country's data schema to use for a given instance of the application. Each configuration should define the schema mapping for the selected country. For example, creating separate configuration files like config_country_A.yml and config_country_B.yml.
 These files define the schema mapping for their respective countries. For example, if the keys are our common internal schema, values will be country_A’s schema in config_country_A.yml:
