@@ -1,0 +1,25 @@
+name: Run Pytest on PR
+
+on:
+  pull_request:
+    branches:
+      - main
+
+jobs:
+  pytest:
+    runs-on: ubuntu-latest
+
+    steps:
+      - name: Checkout Code
+        uses: actions/checkout@v2
+
+      - name: Set Up Python
+        uses: actions/setup-python@v2
+        with:
+          python-version: 3.8 
+
+      - name: Install Dependencies
+        run: pip install pytest
+
+      - name: Run Pytest
+        run: pytest test_etl.py
