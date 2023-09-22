@@ -57,9 +57,10 @@ I would implement these steps below:
 - Updates: Regularly maintaining and updating the application, for example using newly available forecasting models or adding other features to predict the future outcomes.
 - **How would you design an application if you knew that you would have to build a similar solution for a couple other countries, and the data schema might be different for them, however, you can get the same underlying data?**
 1. Maybe using configuration files or settings that specify which country's data schema to use for a given instance of the application. Each configuration should define the schema mapping for the selected country. For example, creating separate configuration files like config_country_A.yml and config_country_B.yml.
-These files define the schema mapping for their respective countries. For example, if the keys are our common internal schema, values will be country_A’s schema in config_country_A.yml:
-  Order_id: Order_number
-  Product_id: product_code
+These files define the schema mapping for their respective countries.
+For example, if the keys in the below 'schema mapping' are our common internal schema, values will be country_A’s schema in config_country_A.yml:
+  Order_id: Order_number, 
+  Product_id: product_code,
   Price: Pricing
-2. Designing the application with ‘Extract’ activity for each country, each with its data extraction logic.  for example, in this ETL process we need several columns to be passed to transformation step, so we can ingest different countries’ data in different activities (e.g in ADF) and as final result we get only necessary columns.
-3. Maintaining a metadata that stores information about the data sources, including information about each country's data schema, such as column names, data types, and any specific considerations (e.g., date formats, currency symbols). So instead of hardcoding schema mappings within application, we can dynamically generate mappings based on the metadata.
+3. Designing the application with ‘Extract’ activity for each country, each with its data extraction logic.  for example, in this ETL process we need several columns to be passed to transformation step, so we can ingest different countries’ data in different activities (e.g in ADF) and as final result we get only necessary columns.
+4. Maintaining a metadata that stores information about the data sources, including information about each country's data schema, such as column names, data types, and any specific considerations (e.g., date formats, currency symbols). So instead of hardcoding schema mappings within application, we can dynamically generate mappings based on the metadata.
